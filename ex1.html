@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        
+        function displayEvenNumbers() {
+    var value = parseInt(document.getElementById('value').value);
+    var evenNumbers = [];
+    var totalSum = 0;
+
+    for (var i = 1; i <= value; i++) {
+        if (i % 2 === 0) {
+            evenNumbers.push(i);
+            totalSum += i;
+        }
+    }
+
+    var resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = "<p>Números pares:</p><ul>";
+
+    for (var j = 0; j < evenNumbers.length; j++) {
+        resultDiv.innerHTML += "<li>" + evenNumbers[j] + "</li>";
+    }
+
+    resultDiv.innerHTML += "</ul><p>Soma total: " + totalSum + "</p>";
+}
+
+    </script>
+    <h1>Exibir Números Pares</h1>
+    <label for="value">Informe um valor:</label>
+    <input type="number" id="value">
+    <button onclick="displayEvenNumbers()">Calcular</button>
+    <div id="result"></div>
+
+</body>
+</html>

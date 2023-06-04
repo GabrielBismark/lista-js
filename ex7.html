@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manipulação de Vetor</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Manipulação de Vetor</h1>
+
+    <label for="inputValue">Insira um valor:</label>
+    <input type="number" id="inputValue" placeholder="Valor">
+    <button onclick="addValue()">Adicionar</button>
+
+    <h2>Valores Inseridos:</h2>
+    <div id="values"></div>
+
+    <h2>Maior Valor:</h2>
+    <div id="maxValue"></div>
+
+    <h2>Menor Valor:</h2>
+    <div id="minValue"></div>
+
+    <button onclick="showAllValues()">Mostrar Todos os Valores</button>
+    <button onclick="showMaxValue()">Mostrar Maior Valor</button>
+    <button onclick="showMinValue()">Mostrar Menor Valor</button>
+
+    <script>
+        var values = [];
+
+        function addValue() {
+            var inputValue = parseFloat(document.getElementById('inputValue').value);
+            values.push(inputValue);
+            document.getElementById('inputValue').value = '';
+        }
+
+        function showAllValues() {
+            var valuesDiv = document.getElementById('values');
+            valuesDiv.innerHTML = 'Valores Inseridos: ' + values.join(', ');
+        }
+
+        function showMaxValue() {
+            var maxValue = Math.max.apply(null, values);
+            var maxValueDiv = document.getElementById('maxValue');
+            maxValueDiv.innerHTML = 'Maior Valor: ' + maxValue;
+        }
+
+        function showMinValue() {
+            var minValue = Math.min.apply(null, values);
+            var minValueDiv = document.getElementById('minValue');
+            minValueDiv.innerHTML = 'Menor Valor: ' + minValue;
+        }
+    </script>
+</body>
+</html>
